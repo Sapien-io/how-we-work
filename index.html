@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapien - How We Work</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#1400FF;--blue-dim:rgba(20,0,255,0.07);--blue-border:rgba(20,0,255,0.18);--black:#0A0A0A;--white:#FFFFFF;--gray-50:#F7F7F5;--gray-300:#B8B8B4;--text:#0A0A0A;--text-muted:#5A5A56;--border:rgba(10,10,10,0.10);--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--font:"DM Sans",system-ui,sans-serif;--mono:"DM Mono",monospace}
+html{font-family:var(--font);color:var(--text);background:var(--white)}
+body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padding:0 0 120px}
+.header{background:var(--black);padding:36px 48px;position:relative;overflow:hidden}
+.header::before{content:"";position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(255,255,255,0.05);border-radius:50%;pointer-events:none}
+.header::after{content:"";position:absolute;bottom:-50px;left:160px;width:200px;height:200px;border:1px solid rgba(20,0,255,0.22);border-radius:50%;pointer-events:none}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.logo-mark{display:flex;align-items:center;gap:12px}
+.logo-name{font-size:20px;font-weight:500;color:var(--white);letter-spacing:-0.02em}
+.version-tag{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.08em}
+.header-body h1{font-size:44px;font-weight:300;color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px}
+.header-body h1 em{font-style:italic;color:rgba(255,255,255,0.4)}
+.header-sub{font-size:14px;color:rgba(255,255,255,0.42);font-weight:300;max-width:520px;line-height:1.6}
+.mission-band{background:var(--blue);padding:22px 48px;display:grid;grid-template-columns:1fr 1fr 1fr}
+.mission-item{padding:0 24px 0 0;border-right:1px solid rgba(255,255,255,0.2);margin-right:24px}
+.mission-item:last-child{border-right:none;margin-right:0;padding-right:0}
+.mission-kicker{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-bottom:5px}
+.mission-text{font-size:13px;color:var(--white);font-weight:400;line-height:1.45}
+.nav-strip{background:var(--gray-50);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;gap:6px;flex-wrap:nowrap;position:sticky;top:0;z-index:50;overflow:visible}
+.nav-pill{font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid var(--border);color:var(--text-muted);text-decoration:none;white-space:nowrap;transition:all 0.15s ease;background:var(--white)}
+.nav-pill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
+.main{padding:0 48px}
+.section{margin-top:0;padding-top:52px;padding-bottom:52px;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;color:var(--gray-300);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:"";display:block;width:20px;height:1px;background:var(--gray-300)}
+.section-title{font-size:26px;font-weight:400;letter-spacing:-0.02em;color:var(--text);margin-bottom:8px;line-height:1.2}
+.section-desc{font-size:14px;color:var(--text-muted);max-width:560px;line-height:1.6;margin-bottom:28px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.value-card{background:var(--gray-50);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 18px 16px;transition:border-color 0.15s,background 0.15s}
+.value-card:hover{border-color:var(--blue-border);background:var(--white)}
+.value-num{font-family:var(--mono);font-size:9px;color:var(--gray-300);letter-spacing:0.1em;display:block;margin-bottom:8px}
+.value-head{font-size:14px;font-weight:500;letter-spacing:-0.01em;margin-bottom:5px;color:var(--text)}
+.value-body{font-size:12px;color:var(--text-muted);line-height:1.5}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.doc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 20px 16px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;position:relative;overflow:hidden;cursor:pointer}
+.doc-card::after{content:"\2197";position:absolute;top:18px;right:18px;font-size:14px;color:var(--blue);opacity:0;transform:translate(-4px,4px);transition:opacity 0.15s,transform 0.15s}
+.doc-card:hover{border-color:var(--blue-border);box-shadow:0 0 0 3px var(--blue-dim);transform:translateY(-1px)}
+.doc-card:hover::after{opacity:1;transform:translate(0,0)}
+.doc-icon{width:32px;height:32px;border-radius:var(--radius-sm);background:var(--gray-50);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:4px;flex-shrink:0}
+.doc-title{font-size:14px;font-weight:500;letter-spacing:-0.01em;color:var(--text);padding-right:20px;line-height:1.3}
+.doc-desc{font-size:12px;color:var(--text-muted);line-height:1.5;flex:1}
+.doc-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--blue);background:var(--blue-dim);border:1px solid var(--blue-border);border-radius:4px;padding:2px 7px;align-self:flex-start}
+.doc-card.featured{grid-column:1/-1;flex-direction:row;align-items:flex-start;gap:20px;background:var(--black);border-color:transparent;padding:24px 28px}
+.doc-card.featured:hover{border-color:rgba(20,0,255,0.5);box-shadow:0 0 0 3px rgba(20,0,255,0.12)}
+.doc-card.featured::after{color:rgba(255,255,255,0.4)}
+.doc-card.featured .doc-icon{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);width:40px;height:40px;flex-shrink:0}
+.doc-card.featured .doc-title{font-size:16px;color:var(--white);font-weight:400}
+.doc-card.featured .doc-desc{color:rgba(255,255,255,0.45);font-size:13px}
+.doc-card.featured .doc-tag{color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)}
+.level-track{display:flex;flex-direction:column;gap:0;border:1.5px solid rgba(10,10,10,0.14);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.level-row{background:var(--white);padding:13px 20px;display:grid;grid-template-columns:64px 1fr 2fr;gap:16px;align-items:center;transition:background 0.12s;cursor:default;border-bottom:1.5px solid rgba(10,10,10,0.08)}
+.level-row:last-child{border-bottom:none}
+.level-row:hover{background:var(--gray-50)}
+.level-num{font-family:var(--mono);font-size:10px;color:var(--gray-300);letter-spacing:0.06em}
+.level-label{font-size:13px;font-weight:500;color:var(--text)}
+.level-quote{font-size:12px;color:var(--text-muted);font-style:italic}
+.level-row.target{background:var(--blue-dim)}
+.level-row.target .level-num{color:var(--blue)}
+.level-row.target .level-label{color:var(--blue)}
+.level-row.target .level-quote{color:var(--blue);opacity:0.7}
+.spec-box{border:1.5px solid rgba(10,10,10,0.14);border-radius:var(--radius-lg);overflow:hidden;background:var(--white);box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.spec-header{background:var(--black);padding:12px 20px;border-bottom:none;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:8px}
+.spec-dot{width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.spec-row{padding:14px 20px;border-bottom:1.5px solid rgba(10,10,10,0.08);display:flex;gap:16px;font-size:13px;transition:background 0.12s}
+.spec-row:hover{background:var(--gray-50)}
+.spec-row:last-child{border-bottom:none}
+.spec-key{font-weight:500;min-width:150px;color:var(--text)}
+.spec-val{color:var(--text-muted);line-height:1.45;flex:1}
+.spec-val strong{color:var(--text);font-weight:500}
+.mtg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.mtg-card{border:1.5px solid rgba(10,10,10,0.12);border-radius:var(--radius-lg);padding:16px 18px;background:var(--white);transition:border-color 0.15s,box-shadow 0.15s;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.mtg-card:hover{border-color:var(--blue-border);box-shadow:0 0 0 3px var(--blue-dim)}
+.mtg-icon{font-family:var(--mono);font-size:16px;color:var(--blue);margin-bottom:8px;line-height:1}
+.mtg-head{font-size:13px;font-weight:500;margin-bottom:4px;letter-spacing:-0.01em}
+.mtg-body{font-size:12px;color:var(--text-muted);line-height:1.5}
+.open-standard{background:var(--black);border-radius:var(--radius-lg);padding:28px 32px 24px;margin-bottom:12px;position:relative;overflow:hidden}
+.open-standard::after{content:"";position:absolute;bottom:-30px;right:-30px;width:120px;height:120px;border:1px solid rgba(20,0,255,0.3);border-radius:50%;pointer-events:none}
+.open-kicker{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.3);margin-bottom:10px}
+.open-headline{font-size:20px;font-weight:400;color:var(--white);letter-spacing:-0.02em;margin-bottom:12px;line-height:1.35}
+.open-body{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.65;max-width:580px}
+.open-body strong{color:rgba(255,255,255,0.85);font-weight:500}
+.open-metric-row{display:flex;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);align-items:center}
+.open-metric{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:10px 16px;text-align:center;min-width:72px}
+.open-metric-n{font-size:22px;font-weight:300;color:var(--white);letter-spacing:-0.03em;line-height:1}
+.open-metric-l{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;margin-top:3px}
+.open-arrow{font-size:18px;color:rgba(255,255,255,0.2)}
+.open-goal{background:rgba(20,0,255,0.25);border:1px solid rgba(20,0,255,0.4)}
+.open-goal .open-metric-n{color:#8899FF}
+.open-goal .open-metric-l{color:rgba(136,153,255,0.6)}
+.open-pw{flex:1}
+.open-pl{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;margin-bottom:5px}
+.open-pb{height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+.open-pf{height:100%;width:20%;background:var(--blue);border-radius:2px;animation:prog 1.2s ease-out 0.3s both}
+@keyframes prog{from{width:0}to{width:20%}}
+.open-principles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.open-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;background:var(--white);transition:border-color 0.15s}
+.open-card:hover{border-color:var(--blue-border)}
+.open-card.dark{background:var(--black);border-color:transparent}
+.open-card.dark:hover{border-color:rgba(20,0,255,0.4)}
+.ock{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;color:var(--gray-300);margin-bottom:7px}
+.open-card.dark .ock{color:rgba(255,255,255,0.25)}
+.och{font-size:14px;font-weight:500;margin-bottom:5px;letter-spacing:-0.01em}
+.open-card.dark .och{color:var(--white);font-style:italic;font-weight:400}
+.ocb{font-size:12px;color:var(--text-muted);line-height:1.5}
+.open-card.dark .ocb{color:rgba(255,255,255,0.4)}
+.open-card.dark .ocb a{color:rgba(255,255,255,0.45);text-decoration:underline}
+.policy-list{display:flex;flex-direction:column;gap:0;border:1.5px solid rgba(10,10,10,0.14);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.policy-row{background:var(--white);padding:15px 20px;display:flex;align-items:center;gap:14px;color:inherit;transition:background 0.12s;cursor:default;border-bottom:1.5px solid rgba(10,10,10,0.08)}
+.policy-row:last-child{border-bottom:none}
+.policy-row:hover{background:var(--gray-50)}
+.policy-dot{width:7px;height:7px;border-radius:50%;background:var(--gray-300);flex-shrink:0}
+.policy-row:hover .policy-dot{background:var(--blue)}
+.policy-label{font-size:14px;font-weight:500;flex:1;letter-spacing:-0.01em}
+.policy-meta{font-size:12px;color:var(--text-muted);max-width:340px;line-height:1.4;text-align:right}
+.policy-meta a{color:var(--blue);text-decoration:none}
+.policy-meta a:hover{text-decoration:underline}
+.quote-block{border-left:2px solid var(--blue);padding:13px 18px;background:var(--blue-dim);border-radius:0 var(--radius-md) var(--radius-md) 0;margin-top:14px}
+.quote-text{font-size:13px;font-style:italic;color:var(--text-muted);line-height:1.6;margin-bottom:5px}
+.quote-attr{font-family:var(--mono);font-size:10px;letter-spacing:0.07em;color:var(--gray-300)}
+.footer{margin-top:60px;padding:24px 48px 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.footer-left{font-size:12px;color:var(--text-muted)}
+.footer-left a{color:var(--blue);text-decoration:none}
+.footer-right{font-family:var(--mono);font-size:10px;color:var(--gray-300);letter-spacing:0.08em}
+[data-tip]{position:relative}
+[data-tip]:hover::before{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:5px 10px;border-radius:6px;white-space:nowrap;z-index:100;pointer-events:none;font-family:var(--font);font-weight:400}
+@media(max-width:640px){.header,.main,.footer{padding-left:24px;padding-right:24px}.nav-strip{padding:10px 24px}.mission-band{grid-template-columns:1fr;padding:20px 24px;gap:14px}.mission-item{border-right:none;margin-right:0;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:12px}.mission-item:last-child{border-bottom:none;padding-bottom:0}.values-grid,.mtg-grid,.open-principles{grid-template-columns:1fr 1fr}.doc-grid{grid-template-columns:1fr}.doc-card.featured{flex-direction:column}.level-row{grid-template-columns:48px 1fr}.level-quote{display:none}.spec-row{flex-direction:column;gap:3px}.footer{flex-direction:column;gap:8px}.header-body h1{font-size:30px}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top">
+    <div class="logo-mark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930.05 199.78" height="22" style="display:block">
+        <style>.cls-1{fill-rule:evenodd}.cls-1,.cls-2{fill:#fff}</style>
+        <path class="cls-1" d="M580.27,40.87c9.62,0,18.22,2.48,25.79,7.43,7.72,4.95,13.7,12.02,17.92,21.2,4.37,9.03,6.56,19.67,6.56,31.91s-2.18,23.02-6.56,32.35c-4.23,9.18-10.13,16.25-17.71,21.2-7.43,4.95-15.81,7.43-25.14,7.43-15.88,0-27.47-5.54-34.75-16.61h-.87v53.99h-34.75V43.72h33.44v15.3h.87c6.7-12.09,18.43-18.14,35.19-18.14ZM569.34,67.1c-7.87,0-14.14,2.91-18.8,8.74-4.52,5.83-6.78,14.43-6.78,25.79s2.26,20.18,6.78,26.01c4.66,5.83,10.93,8.74,18.8,8.74s14.5-2.91,19.02-8.74c4.52-5.83,6.78-14.5,6.78-26.01s-2.33-19.96-6.99-25.79c-4.52-5.83-10.78-8.74-18.8-8.74Z"/>
+        <path class="cls-2" d="M307.49,0c17.49,0,31.91,4.15,43.28,12.46,10.6,7.61,17.46,18.4,20.58,32.35h-36.55c-1.62-4.82-4.31-8.68-8.08-11.58-5.1-3.93-11.95-5.9-20.55-5.9-7.58,0-13.62,1.68-18.14,5.03-4.52,3.21-6.78,7.29-6.78,12.24,0,4.52,1.68,7.94,5.03,10.27,3.35,2.19,8.45,4.08,15.3,5.68l25.14,6.12c10.93,2.77,19.67,5.61,26.23,8.52,6.56,2.77,12.1,7.36,16.61,13.77,4.66,6.41,6.99,15.23,6.99,26.45,0,15.74-6.19,27.62-18.58,35.63-12.39,8.01-28.12,12.02-47.21,12.02s-35.99-4.52-48.96-13.55c-12.82-9.03-20.18-21.86-22.07-38.47-.12-1.06-.23-2-.32-2.84h37.13c1.01,9.17,4.55,15.95,10.62,20.33,6.41,4.52,14.43,6.78,24.04,6.78,8.16,0,14.79-1.6,19.89-4.81,5.1-3.35,7.65-7.94,7.65-13.77,0-5.39-1.9-9.33-5.68-11.8-3.64-2.62-9.91-5.03-18.8-7.21l-23.83-6.12c-9.62-2.62-17.56-5.32-23.83-8.09-6.12-2.91-11.29-7.29-15.52-13.11-4.23-5.83-6.34-13.7-6.34-23.61,0-9.91,2.7-18.36,8.09-25.36,5.39-6.99,12.82-12.31,22.3-15.96,9.47-3.64,20.26-5.46,32.35-5.46Z"/>
+        <path class="cls-1" d="M445.47,40.87c17.34,0,30.38,3.42,39.13,10.27,8.74,6.85,13.12,16.32,13.12,28.42v80h-34.54v-13.12c-3.06,4.95-8.02,8.89-14.86,11.8-6.7,2.77-13.92,4.15-21.64,4.15-7.29,0-13.99-1.38-20.11-4.15-6.12-2.77-11-6.7-14.64-11.8-3.64-5.25-5.47-11.37-5.47-18.36,0-11.8,3.86-20.55,11.58-26.23,7.87-5.83,19.82-9.76,35.85-11.8,11.22-1.46,18.87-3.06,22.95-4.81,4.08-1.89,6.12-4.52,6.12-7.87,0-4.08-1.53-7.21-4.59-9.4-3.06-2.33-7.58-3.5-13.55-3.5-5.1,0-9.62,1.39-13.55,4.15-3.79,2.77-6.49,6.78-8.09,12.02l-32.35-3.94c2.62-11.22,8.74-19.96,18.36-26.23,9.76-6.41,21.86-9.62,36.28-9.62ZM462.96,103.82c-1.6,1.17-4.01,2.11-7.21,2.84-3.21.73-8.31,1.68-15.3,2.84-5.68.88-10.27,2.7-13.77,5.46-3.35,2.77-5.03,6.41-5.03,10.93,0,4.23,1.38,7.58,4.15,10.06,2.91,2.48,6.7,3.72,11.37,3.72,3.93,0,7.87-.88,11.8-2.62,3.93-1.75,7.21-4.52,9.84-8.31,2.77-3.79,4.15-8.45,4.15-13.99v-10.93Z"/>
+        <path class="cls-1" d="M747.33,40.87c18.21,0,32.71,5.32,43.5,15.96,10.78,10.49,16.17,25.5,16.17,45.03,0,3.06-.07,5.32-.22,6.78h-83.72c.15,9.18,2.41,16.54,6.78,22.08,4.37,5.39,10.2,8.09,17.49,8.09,6.85,0,12.1-1.6,15.74-4.81,3.64-3.21,5.97-7.07,6.99-11.59l35.63,2.4c-1.6,6.12-4.66,12.02-9.18,17.71-4.52,5.68-10.93,10.42-19.23,14.21-8.16,3.79-18.14,5.68-29.95,5.68s-22.88-2.4-31.91-7.21c-8.89-4.95-15.74-11.95-20.55-20.98-4.81-9.18-7.21-19.96-7.21-32.35,0-18.94,5.24-33.81,15.74-44.59,10.64-10.93,25.28-16.39,43.93-16.39ZM747.33,63.83c-7.14,0-12.82,2.26-17.05,6.78-4.23,4.37-6.56,10.05-6.99,17.05h48.09c-.44-6.99-2.77-12.68-6.99-17.05-4.22-4.52-9.91-6.78-17.05-6.78Z"/>
+        <path class="cls-2" d="M69.95,159.56h-34.97v-51.37h34.97v51.37Z"/>
+        <path class="cls-2" d="M139.89,159.56h-34.97v-51.37h34.97v51.37Z"/>
+        <path class="cls-2" d="M676.59,159.56h-34.75V43.72h34.75v115.85Z"/>
+        <path class="cls-2" d="M889.39,40.87c12.09,0,21.86,3.64,29.29,10.93,7.58,7.14,11.37,17.7,11.37,31.69v76.07h-34.75v-67.54c0-8.31-1.68-14.28-5.03-17.92-3.21-3.64-8.09-5.46-14.65-5.46-6.41,0-11.8,2.4-16.17,7.21-4.22,4.81-6.34,11.8-6.34,20.98v62.73h-34.75V43.72h33.44v15.52h.87c3.93-5.54,8.96-9.98,15.08-13.33,6.12-3.35,13.33-5.03,21.64-5.03Z"/>
+        <path class="cls-2" d="M174.86,108.2h-34.97v-37.16h-34.97v37.16h-34.97v-37.16h-34.97v37.16H0V43.72h174.86v64.48Z"/>
+        <path class="cls-2" d="M104.92,28.42h-34.97V1.09h34.97v27.32Z"/>
+        <path class="cls-2" d="M676.5,1.31h.09v27.1h-35.06V1.09h34.97v.22Z"/>
+      </svg>
+    </div>
+    <span class="version-tag">HOW WE WORK &middot; 2026</span>
+  </div>
+  <div class="header-body">
+    <h1>The Sapien<br><em>operating system.</em></h1>
+    <p class="header-sub">A single reference for how we think, decide, communicate, and own our work. Bookmark it. Share it. Live by it</p>
+  </div>
+</header>
+
+<div class="mission-band">
+  <div class="mission-item">
+    <div class="mission-kicker">WHAT WE BUILD</div>
+    <div class="mission-text">Open infrastructure for verifiable quality signals — wherever they're needed in the AI lifecycle</div>
+  </div>
+  <div class="mission-item">
+    <div class="mission-kicker">THE PROBLEM WE SOLVE</div>
+    <div class="mission-text">The information age solved distribution, not verification. AI compounds this. We fix it with Proof of Quality</div>
+  </div>
+  <div class="mission-item">
+    <div class="mission-kicker">PROOF OF QUALITY</div>
+    <div class="mission-text">One primitive. Quality verified by economic consensus. Who made the judgment, how it was made, and whether it can be trusted — all provable onchain</div>
+  </div>
+</div>
+
+<nav class="nav-strip">
+  <a class="nav-pill" href="#mission">Values</a>
+  <a class="nav-pill" href="#ownership">Ownership</a>
+  <a class="nav-pill" href="#decisions">Decisions</a>
+  <a class="nav-pill" href="#meetings">Meetings</a>
+  <a class="nav-pill" href="#open">Build in the open</a>
+  <a class="nav-pill" href="#tools">AI + Tools</a>
+  <a class="nav-pill" href="#community">Build in community</a>
+  <a class="nav-pill" href="#policies">Policies</a>
+  <a class="nav-pill" href="#culture">Resources</a>
+</nav>
+
+<main class="main">
+
+  <section class="section" id="mission">
+    <p class="section-label">00 Foundation</p>
+    <h2 class="section-title">At Sapien, we...</h2>
+    <p class="section-desc">Six principles that define how we work, how we communicate, and what we expect from each other</p>
+    <div class="values-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="value-card"><span class="value-num">01</span><div class="value-head">...take full ownership</div><div class="value-body">We don't wait to be told. We find the problem, fix it, and share what we learned</div></div>
+      <div class="value-card"><span class="value-num">02</span><div class="value-head">...build in the open</div><div class="value-body">Decisions, work, and wins belong in public channels. When information flows freely, the whole team moves faster</div></div>
+      <div class="value-card"><span class="value-num">03</span><div class="value-head">...ship with urgency</div><div class="value-body">We are a startup. Speed is a competitive advantage. Leverage AI tools, cut scope ruthlessly, and get things out the door</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="ownership">
+    <p class="section-label">01 Ownership</p>
+    <h2 class="section-title">How we define ownership</h2>
+    <p class="section-desc">Not about titles. About how you show up when something is broken, unclear, or off track. Speak up early, articulate the problem clearly, and bring people together to solve it. The higher the level, the less you're flagging and the more you're fixing</p>
+    <div class="level-track">
+      <div class="level-row" data-tip="Not acceptable at Sapien — add context before escalating"><span class="level-num">LVL 01</span><span class="level-label">Problem Dump <span style="font-size:10px;color:#e03">&#8226; not acceptable</span></span><span class="level-quote">"There's a problem."</span></div>
+      <div class="level-row" data-tip="Baseline for all team members"><span class="level-num">LVL 02</span><span class="level-label">Problem Noted <span style="font-size:10px;color:var(--gray-300)">&#8226; baseline</span></span><span class="level-quote">"There's a problem, and I think I know why."</span></div>
+      <div class="level-row" data-tip="Expected of all team members — minimum bar for team leads"><span class="level-num">LVL 03</span><span class="level-label">Problem Solver <span style="font-size:10px;color:var(--gray-300)">&#8226; all team members</span></span><span class="level-quote">"Here's what's wrong and a few ways we could fix it."</span></div>
+      <div class="level-row" data-tip="Expected of team leads and senior operators"><span class="level-num">LVL 04</span><span class="level-label">Solution Driven <span style="font-size:10px;color:var(--gray-300)">&#8226; team leads</span></span><span class="level-quote">"Here's the problem, cause, options, and what I recommend."</span></div>
+      <div class="level-row target" data-tip="Expected of exec team members"><span class="level-num">LVL 05 &#9733;</span><span class="level-label">Full Ownership <span style="font-size:10px;color:var(--blue);opacity:0.8">&#8226; exec team</span></span><span class="level-quote">"I found it, fixed it, and here's what we learned."</span></div>
+    </div>
+    <div class="quote-block" style="margin-top:14px">
+      <p class="quote-text">This framework is one part of how we think about performance — not the whole picture. Someone can be an exceptional specialist or collaborator at Level 2 or 3. What matters is that problems surface clearly and get routed to the right person to solve them</p>
+    </div>
+    <a href="https://docs.google.com/document/d/1JdzSUXr2ZDQ37-jkab96DGGeUL8K0M4_wxPT8tFFFT0/edit?tab=t.0" target="_blank" class="doc-card featured" style="margin-top:14px;display:flex">
+      <div class="doc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="1.5" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/><path d="M6 6h6M6 9h6M6 12h4" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+      <div style="flex:1"><div class="doc-tag" style="margin-bottom:7px">CORE DOC</div><div class="doc-title">Ownership Framework</div><div class="doc-desc">The complete 5-level framework for how we define, escalate, and resolve problems at Sapien. DRI, PPS, and RAPID all link from here.</div></div>
+    </a>
+  </section>
+
+  <section class="section" id="decisions">
+    <p class="section-label">02 Decision Making</p>
+    <h2 class="section-title">How we make and record decisions</h2>
+    <p class="section-desc">Every meaningful decision should be documented. Use the right tool for the right scope, then leave a record so future teammates understand why</p>
+    <div class="doc-grid">
+      <a href="https://docs.google.com/document/d/1QD8bB4gffpCaqWFm201qbLuCEgWAy3ARooidb86IlKA/edit?tab=t.0" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M8 5v3.5l2 2" stroke="#0A0A0A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <span class="doc-tag">SMALL DECISIONS</span><div class="doc-title">P/PS Template</div><div class="doc-desc">Problem / Proposed Solution. Lightweight and fast. Make a copy and fill it in.</div>
+      </a>
+      <a href="https://docs.google.com/document/d/1sWmDj4j2oTW07DzhEBCdvmfQi3PKC9tQB8h_h6BdtHE/edit?tab=t.0" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="8" rx="1.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#0A0A0A" stroke-width="1.2"/><path d="M5 8h6M5 10.5h3" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+        <span class="doc-tag">BIGGER DECISIONS</span><div class="doc-title">RAPID Template</div><div class="doc-desc">Recommend, Agree, Perform, Input, Decide. For high-impact calls where multiple people are involved.</div>
+      </a>
+      <a href="https://docs.google.com/document/d/1WgljxxjNMzyhh9R2eeS3HxTbCCn2fFOuQH8HkoJi184/edit?tab=t.0" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 3.6L14 6.5l-3 2.9.7 4.1L8 11.5l-3.7 1.9.7-4.1-3-2.9 4.2-.9L8 2z" stroke="#0A0A0A" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+        <span class="doc-tag">OWNERSHIP</span><div class="doc-title">DRI Guidance</div><div class="doc-desc">Directly Responsible Individual. One person owns the outcome. How to assign, escalate, and close the loop.</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="meetings">
+    <p class="section-label">03 Communication</p>
+    <h2 class="section-title">Meeting hygiene</h2>
+    <p class="section-desc">Every meeting needs a reason to exist. If you called it, you own it. Fewer, sharper meetings beat more frequent, aimless ones every time</p>
+    <div class="spec-box">
+      <div class="spec-header"><div class="spec-dot"></div>CHECKLIST · EVERY MEETING</div>
+      <div class="spec-row"><div class="spec-key">Agenda sent 24h before</div><div class="spec-val">The organizer shares a short agenda <strong>the day before</strong>. Three bullet points max. No agenda, no meeting.</div></div>
+      <div class="spec-row"><div class="spec-key">Minimum attendees</div><div class="spec-val">Invite only people who need to contribute or decide. Everyone else gets a summary afterward.</div></div>
+      <div class="spec-row"><div class="spec-key">State the purpose first</div><div class="spec-val">Open with one sentence: <strong>are we informing, deciding, or exploring?</strong> Say it out loud. Pick one.</div></div>
+      <div class="spec-row"><div class="spec-key">Named output at the end</div><div class="spec-val">Close with a named action and owner. No owner means no real action item.</div></div>
+      <div class="spec-row"><div class="spec-key">Audit your recurring list</div><div class="spec-val">Team leads: review your own recurring meetings. Kill duplicates. 1:1s are exempt from public agenda policy.</div></div>
+      <div class="spec-row"><div class="spec-key">It's okay to leave</div><div class="spec-val">If you've been in a meeting for 10 minutes and haven't contributed, <strong>leave</strong>. It's not rude — it means you're busy and have work to do. Manage your time.</div></div>
+    </div>
+    <div class="mtg-grid">
+      <div class="mtg-card"><div class="mtg-icon">&#8595;</div><div class="mtg-head">Fewer is better</div><div class="mtg-body">Before booking, ask if this could be a Slack message, a Loom, or a shared doc. Async first.</div></div>
+      <div class="mtg-card"><div class="mtg-icon">&#8594;</div><div class="mtg-head">One clear ask per meeting</div><div class="mtg-body">A meeting that tries to do three things does none of them well. Pick the highest-priority outcome and build around it.</div></div>
+      <div class="mtg-card"><div class="mtg-icon">&#10003;</div><div class="mtg-head">Always write it down</div><div class="mtg-body">If the outcome isn't captured after the call, it didn't happen. One person takes notes, every time.</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="open">
+    <p class="section-label">04 Transparency</p>
+    <h2 class="section-title">Build in the open</h2>
+    <div class="open-standard">
+      <div class="open-kicker">THE GOLDEN STANDARD</div>
+      <div class="open-headline">Anyone, at any time, should be able to open a Slack channel and know exactly what's happening.</div>
+      <div class="open-body">No digging. No chasing people down. No privileged information locked in DMs. <strong>Every department channel should tell the full story of what the team is working on, what's blocked, and what just shipped.</strong> That's the bar we're building toward.</div>
+      <div class="open-metric-row">
+        <div class="open-metric open-goal"><div class="open-metric-n">15<span style="font-size:13px">%</span></div><div class="open-metric-l">SEPT 1 GOAL</div></div>
+        <div class="open-pw"><div class="open-pl">TARGET: PUBLIC CHANNEL MESSAGES</div><div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px">We are working toward 15% of all Slack messages happening in public channels. Every team lead is accountable for modeling this.</div></div>
+      </div>
+    </div>
+    <div class="open-principles">
+      <div class="open-card"><div class="ock">THE RULE</div><div class="och">Default to public</div><div class="ocb">If a conversation doesn't need to be private, it shouldn't be in a DM. Move threads to shared channels. Managers: model this visibly.</div></div>
+      <div class="open-card"><div class="ock">WHY IT MATTERS</div><div class="och">Visibility creates momentum</div><div class="ocb">When wins and blocks are public, others can step in, celebrate, or help. Silence breeds a false sense of stillness. Post the update.</div></div>
+      <div class="open-card dark"><div class="ock">JENSEN HUANG</div><div class="och">"When information isn't shared, you create silos."</div><div class="ocb">People make decisions with incomplete context, and that slows everything down. <a href="https://www.youtube.com/shorts/QyF2wN0Eu8U" target="_blank">Watch &#8599;</a></div></div>
+      <div class="open-card"><div class="ock">WHERE THINGS GO</div><div class="och">Channel guide</div><div class="ocb">#general for wins and announcements &middot; #product for builds &middot; #marketing for campaigns. When in doubt: #general.</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <p class="section-label">05 AI + Tools</p>
+    <h2 class="section-title">We are an AI-first company</h2>
+    <p class="section-desc">We don't just build AI products — we run on AI. Every person at Sapien is expected to use these tools daily, stay curious about what's new, and share what works with the team</p>
+
+    <div class="open-standard" style="margin-bottom:12px">
+      <div class="open-kicker">THE EXPECTATION</div>
+      <div class="open-headline">If a task can be done faster or better with AI, use AI.</div>
+      <div class="open-body">
+        We are not a company that tolerates doing things slowly out of habit. <strong>Every person here should be leveraging AI tools to do the work of three people.</strong> That is not a figure of speech — it is a genuine operational expectation. Learn the tools. Share what works. Raise the bar constantly.
+      </div>
+    </div>
+
+    <div class="values-grid" style="margin-bottom:12px">
+      <div class="value-card">
+        <span class="value-num">PRINCIPLE 01</span>
+        <div class="value-head">Default to AI first</div>
+        <div class="value-body">Before spending hours on something, ask: can AI draft, structure, summarize, or solve 80% of this in minutes? If yes, start there and refine</div>
+      </div>
+      <div class="value-card">
+        <span class="value-num">PRINCIPLE 02</span>
+        <div class="value-head">Share what works</div>
+        <div class="value-body">If you find a prompt, workflow, or tool that dramatically speeds up your work, post it publicly. One person's discovery becomes everyone's advantage</div>
+      </div>
+      <div class="value-card">
+        <span class="value-num">PRINCIPLE 03</span>
+        <div class="value-head">Stay on the frontier</div>
+        <div class="value-body">The AI landscape moves fast. Make it your job to know what the best tools are right now — not six months ago. Curiosity is a job requirement here</div>
+      </div>
+      <div class="value-card">
+        <span class="value-num">PRINCIPLE 04</span>
+        <div class="value-head">Automate the repetitive</div>
+        <div class="value-body">If you find yourself doing the same task more than twice, that's a signal. Build a workflow, use an agent, or ask if it can be automated. Manual loops are waste</div>
+      </div>
+      <div class="value-card">
+        <span class="value-num">PRINCIPLE 05</span>
+        <div class="value-head">Human judgment on top</div>
+        <div class="value-body">AI handles volume and speed. You bring context, taste, and accountability. The output is yours — own it fully, regardless of how it was generated</div>
+      </div>
+      <div class="value-card">
+        <span class="value-num">PRINCIPLE 06</span>
+        <div class="value-head">Access is not a barrier</div>
+        <div class="value-body">If you need a tool and don't have access, ask. We will get it for you. No one should be working without the right instruments</div>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:28px;margin-bottom:14px">PREFERRED TOOLS</p>
+    <div class="policy-list">
+      <div class="policy-row" data-tip="Our primary AI assistant — use it for writing, analysis, code, research, strategy">
+        <div class="policy-dot"></div>
+        <div class="policy-label">Claude <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">claude.ai</span></div>
+        <div class="policy-meta">Primary AI assistant. Writing, analysis, research, code, strategy. Use it every day</div>
+      </div>
+      <div class="policy-row" data-tip="AI meeting notes — every call should be captured automatically">
+        <div class="policy-dot"></div>
+        <div class="policy-label">Granola <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">granola.ai</span></div>
+        <div class="policy-meta">AI meeting notes. Every call gets captured automatically. No more manual note-taking</div>
+      </div>
+      <div class="policy-row" data-tip="AI-native code editor — the development environment of choice">
+        <div class="policy-dot"></div>
+        <div class="policy-label">Cursor <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">cursor.com</span></div>
+        <div class="policy-meta">AI-native code editor. Standard for all engineering work. If you're coding without it, you're going slower than you need to</div>
+      </div>
+      <div class="policy-row" data-tip="Our knowledge home — docs, strategy, notes all live here">
+        <div class="policy-dot"></div>
+        <div class="policy-label">Notion <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">notion.so</span></div>
+        <div class="policy-meta">Company knowledge base. Docs, strategy, notes, everything written down lives here</div>
+      </div>
+      <div class="policy-row" data-tip="Our communication layer — default to public channels">
+        <div class="policy-dot"></div>
+        <div class="policy-label">Slack <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">slack.com</span></div>
+        <div class="policy-meta">Our workspace. Build in the open. Public channels are the default</div>
+      </div>
+      <div class="policy-row">
+        <div class="policy-dot"></div>
+        <div class="policy-label">Need access to something?</div>
+        <div class="policy-meta">Message <a href="mailto:HR@sapien.io">HR@sapien.io</a> — no one should be blocked by a missing tool</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="community">
+    <p class="section-label">06 Build in Community</p>
+    <h2 class="section-title">Build in community</h2>
+    <p class="section-desc">Building in the open internally is step one. The next level is bringing the world along with us — builders, contributors, and believers who are part of what we're creating</p>
+
+    <div class="open-standard" style="margin-bottom:12px">
+      <div class="open-kicker">THE VISION</div>
+      <div class="open-headline">The best companies don't just ship in public — they build with their community in real time.</div>
+      <div class="open-body">
+        Building in community means our contributors, developers, and token holders aren't just end users — <strong>they're part of the process.</strong> They see what we're working on. They give feedback before it ships. They celebrate wins alongside us. This is how trust gets built at scale, and how a protocol becomes something people genuinely care about.
+      </div>
+    </div>
+
+    <div class="open-principles">
+      <div class="open-card">
+        <div class="ock">INTERNAL</div>
+        <div class="och">Build in the open</div>
+        <div class="ocb">Within Sapien, default to public Slack channels. Anyone should be able to see what every team is working on at any moment. No hidden silos</div>
+      </div>
+      <div class="open-card">
+        <div class="ock">EXTERNAL</div>
+        <div class="och">Build in community</div>
+        <div class="ocb">With our contributors and the world: share progress publicly, narrate the journey, invite people in. Real-time updates beat polished retrospectives</div>
+      </div>
+      <div class="open-card">
+        <div class="ock">HOW WE COMMUNICATE</div>
+        <div class="och">Relentlessly positive</div>
+        <div class="ocb">We work in a technology that could transform humanity for the better. We talk about what's possible, what's exciting, and what we're building toward. We stay in our lane. We don't punch at competitors or wade into negativity</div>
+      </div>
+      <div class="open-card dark">
+        <div class="ock">THE STANDARD</div>
+        <div class="och">"Don't summarize the past. Narrate the present."</div>
+        <div class="ocb">The most magnetic companies publish what they're learning right now — the experiments, the pivots, the discoveries. That's what builds a real community around a product</div>
+      </div>
+    </div>
+
+    <div class="mtg-grid" style="margin-top:12px">
+      <div class="mtg-card">
+        <div class="mtg-icon">&#128172;</div>
+        <div class="mtg-head">Show your work</div>
+        <div class="mtg-body">Post Looms. Share prototypes. Drop screenshots of things in progress. The more people see being built, the more invested they become</div>
+      </div>
+      <div class="mtg-card">
+        <div class="mtg-icon">&#128200;</div>
+        <div class="mtg-head">Celebrate publicly</div>
+        <div class="mtg-body">When something ships, when a milestone is hit, when a contributor does great work — say it out loud and in public. Wins shared are wins multiplied</div>
+      </div>
+      <div class="mtg-card">
+        <div class="mtg-icon">&#127757;</div>
+        <div class="mtg-head">Bring contributors in</div>
+        <div class="mtg-body">Our network of contributors isn't just a labour pool — they're the heartbeat of the protocol. Treat them like co-builders, because that's exactly what they are</div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="policies">
+    <p class="section-label">07 HR Policies</p>
+    <h2 class="section-title">Key policies to know</h2>
+    <p class="section-desc">The full guide covers everything. These are the sections that come up most. Hover any row for a quick note.</p>
+    <div class="policy-list">
+      <div class="policy-row" data-tip="Take at least 15 days per year"><div class="policy-dot"></div><div class="policy-label">Vacation</div><div class="policy-meta">Unlimited. Minimum 15 days/year recommended. Log in Rippling, approve with manager.</div></div>
+      <div class="policy-row" data-tip="3 paid + 3 unpaid per calendar year"><div class="policy-dot"></div><div class="policy-label">Sick Leave</div><div class="policy-meta">3 paid + 3 unpaid days per year. Notify manager as soon as possible.</div></div>
+      <div class="policy-row" data-tip="Core hours are 10am-5pm in your local timezone"><div class="policy-dot"></div><div class="policy-label">Working Hours</div><div class="policy-meta">Core hours 10am&ndash;5pm local time. Be online, responsive, and present during these hours.</div></div>
+      <div class="policy-row" data-tip="Up to $1,500 CAD per year with approval"><div class="policy-dot"></div><div class="policy-label">Learning and Development</div><div class="policy-meta">Up to $1,500 CAD/year. Pre-approval required from manager and HR.</div></div>
+      <div class="policy-row" data-tip="Paid at 90 days and 6 months"><div class="policy-dot"></div><div class="policy-label">Employee Referrals</div><div class="policy-meta">$1,000 (junior) or $2,500 (senior) CAD. Split at 90 days and 6 months.</div></div>
+      <div class="policy-row" data-tip="Tokens: 3-year vest with 1-year cliff"><div class="policy-dot"></div><div class="policy-label">Equity and Token Grants</div><div class="policy-meta">Equity: 4-year vesting, 1-year cliff. Tokens: 3-year vesting, 1-year cliff.</div></div>
+      <div class="policy-row"><div class="policy-dot"></div><div class="policy-label">Full Policy Document</div><div class="policy-meta"><a href="#" target="_blank">View complete guide &#8599;</a> · conduct, IT, expenses, parental leave, confidentiality and more.</div></div>
+    </div>
+    <p style="margin-top:12px;font-size:12px;color:var(--text-muted)">Questions: <a href="mailto:HR@sapien.io" style="color:var(--blue);text-decoration:none">HR@sapien.io</a></p>
+  </section>
+
+  <section class="section" id="culture">
+    <p class="section-label">08 Resources</p>
+    <h2 class="section-title">Resources</h2>
+    <p class="section-desc">Key links for understanding what we're building, how the protocol works, and where to find things.</p>
+    <div class="doc-grid">
+      <a href="https://www.sapien.io" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M8 2.5C6.5 4.5 6 6 6 8s.5 3.5 2 5.5M8 2.5C9.5 4.5 10 6 10 8s-.5 3.5-2 5.5M2.5 8h11" stroke="#0A0A0A" stroke-width="1.1"/></svg></div>
+        <span class="doc-tag">COMPANY</span><div class="doc-title">sapien.io</div><div class="doc-desc">Our public home. Product, mission, and how we describe what we're building to the world.</div>
+      </a>
+      <a href="https://docs.sapien.io" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M5 5h6M5 8h6M5 11h3" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+        <span class="doc-tag">DOCS</span><div class="doc-title">docs.sapien.io</div><div class="doc-desc">Our technical documentation. APIs, integration guides, and protocol reference material.</div>
+      </a>
+      <div class="doc-card" style="cursor:default">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l1.5 3 3.3.5-2.4 2.3.6 3.2L8 10.5l-3 1.5.6-3.2-2.4-2.3 3.3-.5L8 3z" stroke="#0A0A0A" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+        <span class="doc-tag">TOKEN</span><div class="doc-title">Token Holder Guide</div><div class="doc-desc">What your $SAPIEN tokens are, how vesting works, the lock-up period, and how to submit your wallet address.</div>
+      </div>
+      <div class="doc-card" style="cursor:default">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/></svg></div>
+        <span class="doc-tag" style="background:rgba(184,184,180,0.15);color:var(--gray-300);border-color:rgba(184,184,180,0.3)">WORK IN PROGRESS</span><div class="doc-title">Tokenomics Doc</div><div class="doc-desc">How $SAPIEN powers Proof of Quality. Being updated — link the current version for reference in the meantime.</div>
+      </div>
+      <div class="doc-card" style="cursor:default">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M3 5h10M3 11h6" stroke="#0A0A0A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <span class="doc-tag" style="background:rgba(184,184,180,0.15);color:var(--gray-300);border-color:rgba(184,184,180,0.3)">WORK IN PROGRESS</span><div class="doc-title">Tokenomics Summary</div><div class="doc-desc">Plain-language breakdown of the token system. Summary of current version — updated tokenomics coming soon.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M5.5 8.5c.5.8 1.4 1.3 2.5 1.3s2-.5 2.5-1.3M6 6.5h.01M10 6.5h.01" stroke="#0A0A0A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <span class="doc-tag">COMMUNITY</span>
+        <div class="doc-title">Find us online</div>
+        <div class="doc-desc">
+          <a href="https://www.linkedin.com/company/joinsapien/" target="_blank" style="color:var(--blue);text-decoration:none;display:block;margin-bottom:4px">LinkedIn &#8599;</a>
+          <a href="https://x.com/BuildOnSapien" target="_blank" style="color:var(--blue);text-decoration:none;display:block;margin-bottom:4px">X / Twitter &#8599;</a>
+          <a href="https://discord.com/invite/sapien" target="_blank" style="color:var(--blue);text-decoration:none;display:block;margin-bottom:4px">Discord &#8599;</a>
+          <a href="https://t.me/SapienCommunity" target="_blank" style="color:var(--blue);text-decoration:none;display:block">Telegram &#8599;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-left">Sapien &nbsp;&middot;&nbsp; <a href="https://www.sapien.io" target="_blank">sapien.io</a> &nbsp;&middot;&nbsp; <a href="mailto:HR@sapien.io">HR@sapien.io</a></div>
+  <div class="footer-right">INTERNAL USE ONLY &nbsp;&middot;&nbsp; 2026</div>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-pill').forEach(function(pill){
+  pill.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
