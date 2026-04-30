@@ -9,10 +9,11 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--blue:#1400FF;--blue-dim:rgba(20,0,255,0.07);--blue-border:rgba(20,0,255,0.18);--black:#0A0A0A;--white:#FFFFFF;--gray-50:#F7F7F5;--gray-300:#B8B8B4;--text:#0A0A0A;--text-muted:#5A5A56;--border:rgba(10,10,10,0.10);--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--font:"DM Sans",system-ui,sans-serif;--mono:"DM Mono",monospace}
 html{font-family:var(--font);color:var(--text);background:var(--white)}
-body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padding:0 0 120px}
-.header{background:var(--black);padding:36px 48px;position:relative;overflow:hidden}
-.header::before{content:"";position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(255,255,255,0.05);border-radius:50%;pointer-events:none}
-.header::after{content:"";position:absolute;bottom:-50px;left:160px;width:200px;height:200px;border:1px solid rgba(20,0,255,0.22);border-radius:50%;pointer-events:none}
+body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
+.header{background:var(--black);position:relative;overflow:hidden}
+.header-inner{max-width:900px;margin:0 auto;padding:36px 48px;position:relative;z-index:1}
+.header::before{content:"";position:absolute;top:-120px;right:calc(50% - 560px);width:340px;height:340px;border:1px solid rgba(255,255,255,0.08);border-radius:50%;pointer-events:none}
+.header::after{content:"";position:absolute;bottom:-90px;left:calc(50% - 360px);width:220px;height:220px;border:1px solid rgba(20,0,255,0.28);border-radius:50%;pointer-events:none}
 .header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
 .logo-mark{display:flex;align-items:center;gap:12px}
 .logo-name{font-size:20px;font-weight:500;color:var(--white);letter-spacing:-0.02em}
@@ -20,15 +21,17 @@ body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padd
 .header-body h1{font-size:44px;font-weight:300;color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px}
 .header-body h1 em{font-style:italic;color:rgba(255,255,255,0.4)}
 .header-sub{font-size:14px;color:rgba(255,255,255,0.42);font-weight:300;max-width:520px;line-height:1.6}
-.mission-band{background:var(--blue);padding:22px 48px;display:grid;grid-template-columns:1fr 1fr 1fr}
+.mission-band{background:var(--blue)}
+.mission-inner{max-width:900px;margin:0 auto;padding:22px 48px;display:grid;grid-template-columns:1fr 1fr 1fr}
 .mission-item{padding:0 24px 0 0;border-right:1px solid rgba(255,255,255,0.2);margin-right:24px}
 .mission-item:last-child{border-right:none;margin-right:0;padding-right:0}
 .mission-kicker{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-bottom:5px}
 .mission-text{font-size:13px;color:var(--white);font-weight:400;line-height:1.45}
-.nav-strip{background:var(--gray-50);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;gap:6px;flex-wrap:nowrap;position:sticky;top:0;z-index:50;overflow:visible}
-.nav-pill{font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid var(--border);color:var(--text-muted);text-decoration:none;white-space:nowrap;transition:all 0.15s ease;background:var(--white)}
+.nav-strip{background:var(--gray-50);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.nav-inner{max-width:900px;margin:0 auto;padding:10px 48px;display:flex;gap:5px;flex-wrap:nowrap;justify-content:space-between}
+.nav-pill{font-size:11px;font-weight:500;padding:5px 11px;border-radius:20px;border:1px solid var(--border);color:var(--text-muted);text-decoration:none;white-space:nowrap;transition:all 0.15s ease;background:var(--white)}
 .nav-pill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
-.main{padding:0 48px}
+.main{max-width:900px;margin:0 auto;padding:0 48px}
 .section{margin-top:0;padding-top:52px;padding-bottom:52px;border-bottom:1px solid var(--border)}
 .section:last-child{border-bottom:none}
 .section-label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;color:var(--gray-300);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
@@ -127,18 +130,19 @@ body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padd
 .quote-block{border-left:2px solid var(--blue);padding:13px 18px;background:var(--blue-dim);border-radius:0 var(--radius-md) var(--radius-md) 0;margin-top:14px}
 .quote-text{font-size:13px;font-style:italic;color:var(--text-muted);line-height:1.6;margin-bottom:5px}
 .quote-attr{font-family:var(--mono);font-size:10px;letter-spacing:0.07em;color:var(--gray-300)}
-.footer{margin-top:60px;padding:24px 48px 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.footer{max-width:900px;margin:60px auto 0;padding:24px 48px 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .footer-left{font-size:12px;color:var(--text-muted)}
 .footer-left a{color:var(--blue);text-decoration:none}
 .footer-right{font-family:var(--mono);font-size:10px;color:var(--gray-300);letter-spacing:0.08em}
 [data-tip]{position:relative}
 [data-tip]:hover::before{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:5px 10px;border-radius:6px;white-space:nowrap;z-index:100;pointer-events:none;font-family:var(--font);font-weight:400}
-@media(max-width:640px){.header,.main,.footer{padding-left:24px;padding-right:24px}.nav-strip{padding:10px 24px}.mission-band{grid-template-columns:1fr;padding:20px 24px;gap:14px}.mission-item{border-right:none;margin-right:0;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:12px}.mission-item:last-child{border-bottom:none;padding-bottom:0}.values-grid,.mtg-grid,.open-principles{grid-template-columns:1fr 1fr}.doc-grid{grid-template-columns:1fr}.doc-card.featured{flex-direction:column}.level-row{grid-template-columns:48px 1fr}.level-quote{display:none}.spec-row{flex-direction:column;gap:3px}.footer{flex-direction:column;gap:8px}.header-body h1{font-size:30px}}
+@media(max-width:640px){.header-inner,.main,.footer{padding-left:24px;padding-right:24px}.nav-inner{padding:10px 24px}.mission-inner{grid-template-columns:1fr;padding:20px 24px;gap:14px}.mission-item{border-right:none;margin-right:0;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:12px}.mission-item:last-child{border-bottom:none;padding-bottom:0}.values-grid,.mtg-grid,.open-principles{grid-template-columns:1fr 1fr}.doc-grid{grid-template-columns:1fr}.doc-card.featured{flex-direction:column}.level-row{grid-template-columns:48px 1fr}.level-quote{display:none}.spec-row{flex-direction:column;gap:3px}.footer{flex-direction:column;gap:8px}.header-body h1{font-size:30px}}
 </style>
 </head>
 <body>
 
 <header class="header">
+  <div class="header-inner">
   <div class="header-top">
     <div class="logo-mark">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930.05 199.78" height="22" style="display:block">
@@ -162,9 +166,11 @@ body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padd
     <h1>The Sapien<br><em>operating system.</em></h1>
     <p class="header-sub">A single reference for how we think, decide, communicate, and own our work. Bookmark it. Share it. Live by it</p>
   </div>
+  </div>
 </header>
 
 <div class="mission-band">
+  <div class="mission-inner">
   <div class="mission-item">
     <div class="mission-kicker">WHAT WE BUILD</div>
     <div class="mission-text">Open infrastructure for verifiable quality signals — wherever they're needed in the AI lifecycle</div>
@@ -177,9 +183,10 @@ body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padd
     <div class="mission-kicker">PROOF OF QUALITY</div>
     <div class="mission-text">One primitive. Quality verified by economic consensus. Who made the judgment, how it was made, and whether it can be trusted — all provable onchain</div>
   </div>
+  </div>
 </div>
 
-<nav class="nav-strip">
+<nav class="nav-strip"><div class="nav-inner">
   <a class="nav-pill" href="#mission">Values</a>
   <a class="nav-pill" href="#ownership">Ownership</a>
   <a class="nav-pill" href="#decisions">Decisions</a>
@@ -189,7 +196,7 @@ body{min-height:100vh;background:var(--white);max-width:900px;margin:0 auto;padd
   <a class="nav-pill" href="#community">Build in community</a>
   <a class="nav-pill" href="#policies">Policies</a>
   <a class="nav-pill" href="#culture">Resources</a>
-</nav>
+</div></nav>
 
 <main class="main">
 
