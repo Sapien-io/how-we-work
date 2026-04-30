@@ -12,8 +12,6 @@ html{font-family:var(--font);color:var(--text);background:var(--white)}
 body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 .header{background:var(--black);position:relative;overflow:hidden}
 .header-inner{max-width:900px;margin:0 auto;padding:36px 48px;position:relative;z-index:1}
-.header::before{content:"";position:absolute;top:-120px;right:calc(50% - 560px);width:340px;height:340px;border:1px solid rgba(255,255,255,0.08);border-radius:50%;pointer-events:none}
-.header::after{content:"";position:absolute;bottom:-90px;left:calc(50% - 360px);width:220px;height:220px;border:1px solid rgba(20,0,255,0.28);border-radius:50%;pointer-events:none}
 .header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
 .logo-mark{display:flex;align-items:center;gap:12px}
 .logo-name{font-size:20px;font-weight:500;color:var(--white);letter-spacing:-0.02em}
@@ -203,7 +201,7 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
   <section class="section" id="mission">
     <p class="section-label">00 Foundation</p>
     <h2 class="section-title">At Sapien, we...</h2>
-    <p class="section-desc">Six principles that define how we work, how we communicate, and what we expect from each other</p>
+    <p class="section-desc" style="max-width:none">Three principles that define how we work, how we communicate, and what we expect from each other</p>
     <div class="values-grid" style="grid-template-columns:repeat(3,1fr)">
       <div class="value-card"><span class="value-num">01</span><div class="value-head">...take full ownership</div><div class="value-body">We don't wait to be told. We find the problem, fix it, and share what we learned</div></div>
       <div class="value-card"><span class="value-num">02</span><div class="value-head">...build in the open</div><div class="value-body">Decisions, work, and wins belong in public channels. When information flows freely, the whole team moves faster</div></div>
@@ -410,17 +408,17 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 
     <div class="mtg-grid" style="margin-top:12px">
       <div class="mtg-card">
-        <div class="mtg-icon">&#128172;</div>
+        <div class="mtg-icon">&#8595;</div>
         <div class="mtg-head">Show your work</div>
         <div class="mtg-body">Post Looms. Share prototypes. Drop screenshots of things in progress. The more people see being built, the more invested they become</div>
       </div>
       <div class="mtg-card">
-        <div class="mtg-icon">&#128200;</div>
+        <div class="mtg-icon">&#8594;</div>
         <div class="mtg-head">Celebrate publicly</div>
         <div class="mtg-body">When something ships, when a milestone is hit, when a contributor does great work — say it out loud and in public. Wins shared are wins multiplied</div>
       </div>
       <div class="mtg-card">
-        <div class="mtg-icon">&#127757;</div>
+        <div class="mtg-icon">&#10003;</div>
         <div class="mtg-head">Bring contributors in</div>
         <div class="mtg-body">Our network of contributors isn't just a labour pool — they're the heartbeat of the protocol. Treat them like co-builders, because that's exactly what they are</div>
       </div>
