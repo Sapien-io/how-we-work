@@ -37,8 +37,7 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 .section-title{font-size:26px;font-weight:400;letter-spacing:-0.02em;color:var(--text);margin-bottom:8px;line-height:1.2}
 .section-desc{font-size:14px;color:var(--text-muted);max-width:560px;line-height:1.6;margin-bottom:28px}
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.value-card{background:var(--gray-50);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 18px 16px;transition:border-color 0.15s,background 0.15s}
-.value-card:hover{border-color:var(--blue-border);background:var(--white)}
+.value-card{background:var(--gray-50);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 18px 16px}
 .value-num{font-family:var(--mono);font-size:9px;color:var(--gray-300);letter-spacing:0.1em;display:block;margin-bottom:8px}
 .value-head{font-size:14px;font-weight:500;letter-spacing:-0.01em;margin-bottom:5px;color:var(--text)}
 .value-body{font-size:12px;color:var(--text-muted);line-height:1.5}
@@ -58,10 +57,14 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 .doc-card.featured .doc-title{font-size:16px;color:var(--white);font-weight:400}
 .doc-card.featured .doc-desc{color:rgba(255,255,255,0.45);font-size:13px}
 .doc-card.featured .doc-tag{color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)}
+.doc-card.static{cursor:default}
+.doc-card.static:hover{border-color:var(--border);box-shadow:none;transform:none}
+.doc-card.static::after{display:none}
+.doc-card .doc-link{color:var(--blue);text-decoration:none;display:inline-block;padding:2px 6px;margin:0 -6px;border-radius:4px;transition:background 0.15s}
+.doc-card .doc-link:hover{background:var(--blue-dim)}
 .level-track{display:flex;flex-direction:column;gap:0;border:1.5px solid rgba(10,10,10,0.14);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
 .level-row{background:var(--white);padding:13px 20px;display:grid;grid-template-columns:64px 1fr 2fr;gap:16px;align-items:center;transition:background 0.12s;cursor:default;border-bottom:1.5px solid rgba(10,10,10,0.08)}
 .level-row:last-child{border-bottom:none}
-.level-row:hover{background:var(--gray-50)}
 .level-num{font-family:var(--mono);font-size:10px;color:var(--gray-300);letter-spacing:0.06em}
 .level-label{font-size:13px;font-weight:500;color:var(--text)}
 .level-quote{font-size:12px;color:var(--text-muted);font-style:italic}
@@ -72,15 +75,13 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 .spec-box{border:1.5px solid rgba(10,10,10,0.14);border-radius:var(--radius-lg);overflow:hidden;background:var(--white);box-shadow:0 1px 4px rgba(0,0,0,0.04)}
 .spec-header{background:var(--black);padding:12px 20px;border-bottom:none;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:8px}
 .spec-dot{width:7px;height:7px;border-radius:50%;background:var(--blue)}
-.spec-row{padding:14px 20px;border-bottom:1.5px solid rgba(10,10,10,0.08);display:flex;gap:16px;font-size:13px;transition:background 0.12s}
-.spec-row:hover{background:var(--gray-50)}
+.spec-row{padding:14px 20px;border-bottom:1.5px solid rgba(10,10,10,0.08);display:flex;gap:16px;font-size:13px}
 .spec-row:last-child{border-bottom:none}
 .spec-key{font-weight:500;min-width:150px;color:var(--text)}
 .spec-val{color:var(--text-muted);line-height:1.45;flex:1}
 .spec-val strong{color:var(--text);font-weight:500}
 .mtg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.mtg-card{border:1.5px solid rgba(10,10,10,0.12);border-radius:var(--radius-lg);padding:16px 18px;background:var(--white);transition:border-color 0.15s,box-shadow 0.15s;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
-.mtg-card:hover{border-color:var(--blue-border);box-shadow:0 0 0 3px var(--blue-dim)}
+.mtg-card{border:1.5px solid rgba(10,10,10,0.12);border-radius:var(--radius-lg);padding:16px 18px;background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .mtg-icon{font-family:var(--mono);font-size:16px;color:var(--blue);margin-bottom:8px;line-height:1}
 .mtg-head{font-size:13px;font-weight:500;margin-bottom:4px;letter-spacing:-0.01em}
 .mtg-body{font-size:12px;color:var(--text-muted);line-height:1.5}
@@ -105,9 +106,7 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 @keyframes prog{from{width:0}to{width:20%}}
 .open-principles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .open-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;background:var(--white);transition:border-color 0.15s}
-.open-card:hover{border-color:var(--blue-border)}
 .open-card.dark{background:var(--black);border-color:transparent}
-.open-card.dark:hover{border-color:rgba(20,0,255,0.4)}
 .ock{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;color:var(--gray-300);margin-bottom:7px}
 .open-card.dark .ock{color:rgba(255,255,255,0.25)}
 .och{font-size:14px;font-weight:500;margin-bottom:5px;letter-spacing:-0.01em}
@@ -116,11 +115,12 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 .open-card.dark .ocb{color:rgba(255,255,255,0.4)}
 .open-card.dark .ocb a{color:rgba(255,255,255,0.45);text-decoration:underline}
 .policy-list{display:flex;flex-direction:column;gap:0;border:1.5px solid rgba(10,10,10,0.14);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.policy-row{background:var(--white);padding:15px 20px;display:flex;align-items:center;gap:14px;color:inherit;transition:background 0.12s;cursor:default;border-bottom:1.5px solid rgba(10,10,10,0.08)}
+.policy-row{background:var(--white);padding:15px 20px;display:flex;align-items:center;gap:14px;color:inherit;cursor:default;border-bottom:1.5px solid rgba(10,10,10,0.08);text-decoration:none}
 .policy-row:last-child{border-bottom:none}
-.policy-row:hover{background:var(--gray-50)}
+a.policy-row{cursor:pointer;transition:background 0.12s}
+a.policy-row:hover{background:var(--gray-50)}
+a.policy-row:hover .policy-dot{background:var(--blue)}
 .policy-dot{width:7px;height:7px;border-radius:50%;background:var(--gray-300);flex-shrink:0}
-.policy-row:hover .policy-dot{background:var(--blue)}
 .policy-label{font-size:14px;font-weight:500;flex:1;letter-spacing:-0.01em}
 .policy-meta{font-size:12px;color:var(--text-muted);max-width:340px;line-height:1.4;text-align:right}
 .policy-meta a{color:var(--blue);text-decoration:none}
@@ -188,7 +188,7 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
   <a class="nav-pill" href="#mission">Values</a>
   <a class="nav-pill" href="#ownership">Ownership</a>
   <a class="nav-pill" href="#decisions">Decisions</a>
-  <a class="nav-pill" href="#meetings">Meetings</a>
+  <a class="nav-pill" href="#meetings">Communication</a>
   <a class="nav-pill" href="#open">Build in the open</a>
   <a class="nav-pill" href="#tools">AI + Tools</a>
   <a class="nav-pill" href="#community">Build in community</a>
@@ -337,31 +337,31 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
 
     <p class="section-label" style="margin-top:28px;margin-bottom:14px">PREFERRED TOOLS</p>
     <div class="policy-list">
-      <div class="policy-row" data-tip="Our primary AI assistant — use it for writing, analysis, code, research, strategy">
+      <a class="policy-row" href="https://claude.ai" target="_blank" data-tip="Our primary AI assistant — use it for writing, analysis, code, research, strategy">
         <div class="policy-dot"></div>
         <div class="policy-label">Claude <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">claude.ai</span></div>
         <div class="policy-meta">Primary AI assistant. Writing, analysis, research, code, strategy. Use it every day</div>
-      </div>
-      <div class="policy-row" data-tip="AI meeting notes — every call should be captured automatically">
+      </a>
+      <a class="policy-row" href="https://granola.ai" target="_blank" data-tip="AI meeting notes — every call should be captured automatically">
         <div class="policy-dot"></div>
         <div class="policy-label">Granola <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">granola.ai</span></div>
         <div class="policy-meta">AI meeting notes. Every call gets captured automatically. No more manual note-taking</div>
-      </div>
-      <div class="policy-row" data-tip="AI-native code editor — the development environment of choice">
+      </a>
+      <a class="policy-row" href="https://cursor.com" target="_blank" data-tip="AI-native code editor — the development environment of choice">
         <div class="policy-dot"></div>
         <div class="policy-label">Cursor <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">cursor.com</span></div>
         <div class="policy-meta">AI-native code editor. Standard for all engineering work. If you're coding without it, you're going slower than you need to</div>
-      </div>
-      <div class="policy-row" data-tip="Our knowledge home — docs, strategy, notes all live here">
+      </a>
+      <a class="policy-row" href="https://notion.so" target="_blank" data-tip="Our knowledge home — docs, strategy, notes all live here">
         <div class="policy-dot"></div>
         <div class="policy-label">Notion <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">notion.so</span></div>
         <div class="policy-meta">Company knowledge base. Docs, strategy, notes, everything written down lives here</div>
-      </div>
-      <div class="policy-row" data-tip="Our communication layer — default to public channels">
+      </a>
+      <a class="policy-row" href="https://slack.com" target="_blank" data-tip="Our communication layer — default to public channels">
         <div class="policy-dot"></div>
         <div class="policy-label">Slack <span style="font-family:var(--mono);font-size:10px;color:var(--gray-300);margin-left:6px">slack.com</span></div>
         <div class="policy-meta">Our workspace. Build in the open. Public channels are the default</div>
-      </div>
+      </a>
       <div class="policy-row">
         <div class="policy-dot"></div>
         <div class="policy-label">Need access to something?</div>
@@ -455,27 +455,27 @@ body{min-height:100vh;background:var(--white);margin:0;padding:0 0 120px}
         <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M5 5h6M5 8h6M5 11h3" stroke="#0A0A0A" stroke-width="1.1" stroke-linecap="round"/></svg></div>
         <span class="doc-tag">DOCS</span><div class="doc-title">docs.sapien.io</div><div class="doc-desc">Our technical documentation. APIs, integration guides, and protocol reference material.</div>
       </a>
-      <div class="doc-card" style="cursor:default">
+      <div class="doc-card static">
         <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l1.5 3 3.3.5-2.4 2.3.6 3.2L8 10.5l-3 1.5.6-3.2-2.4-2.3 3.3-.5L8 3z" stroke="#0A0A0A" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
         <span class="doc-tag" style="background:rgba(184,184,180,0.15);color:var(--gray-300);border-color:rgba(184,184,180,0.3)">IN PROGRESS</span><div class="doc-title">Token Holder Guide</div><div class="doc-desc">What your $SAPIEN tokens are, how vesting works, the lock-up period, and how to submit your wallet address.</div>
       </div>
-      <div class="doc-card" style="cursor:default">
+      <div class="doc-card static">
         <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="#0A0A0A" stroke-width="1.2"/></svg></div>
         <span class="doc-tag" style="background:rgba(184,184,180,0.15);color:var(--gray-300);border-color:rgba(184,184,180,0.3)">WORK IN PROGRESS</span><div class="doc-title">Tokenomics Doc</div><div class="doc-desc">How $SAPIEN powers Proof of Quality. Being updated — link the current version for reference in the meantime.</div>
       </div>
-      <div class="doc-card" style="cursor:default">
+      <div class="doc-card static">
         <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M3 5h10M3 11h6" stroke="#0A0A0A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
         <span class="doc-tag" style="background:rgba(184,184,180,0.15);color:var(--gray-300);border-color:rgba(184,184,180,0.3)">WORK IN PROGRESS</span><div class="doc-title">Tokenomics Summary</div><div class="doc-desc">Plain-language breakdown of the token system. Summary of current version — updated tokenomics coming soon.</div>
       </div>
-      <div class="doc-card">
+      <div class="doc-card static">
         <div class="doc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#0A0A0A" stroke-width="1.2"/><path d="M5.5 8.5c.5.8 1.4 1.3 2.5 1.3s2-.5 2.5-1.3M6 6.5h.01M10 6.5h.01" stroke="#0A0A0A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
         <span class="doc-tag">COMMUNITY</span>
         <div class="doc-title">Find us online</div>
         <div class="doc-desc">
-          <a href="https://www.linkedin.com/company/joinsapien/" target="_blank" style="color:var(--blue);text-decoration:none;display:block;margin-bottom:4px">LinkedIn &#8599;</a>
-          <a href="https://x.com/BuildOnSapien" target="_blank" style="color:var(--blue);text-decoration:none;display:block;margin-bottom:4px">X / Twitter &#8599;</a>
-          <a href="https://discord.com/invite/sapien" target="_blank" style="color:var(--blue);text-decoration:none;display:block;margin-bottom:4px">Discord &#8599;</a>
-          <a href="https://t.me/SapienCommunity" target="_blank" style="color:var(--blue);text-decoration:none;display:block">Telegram &#8599;</a>
+          <a href="https://www.linkedin.com/company/joinsapien/" target="_blank" class="doc-link" style="margin-bottom:4px">LinkedIn &#8599;</a><br>
+          <a href="https://x.com/BuildOnSapien" target="_blank" class="doc-link" style="margin-bottom:4px">X / Twitter &#8599;</a><br>
+          <a href="https://discord.com/invite/sapien" target="_blank" class="doc-link" style="margin-bottom:4px">Discord &#8599;</a><br>
+          <a href="https://t.me/SapienCommunity" target="_blank" class="doc-link">Telegram &#8599;</a>
         </div>
       </div>
     </div>
